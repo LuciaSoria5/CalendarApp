@@ -9,7 +9,6 @@ export const useAuthStore = () => {
 
     const startLogin = async({ email, password }) => {
         dispatch( onChecking() );
-
         try {
             const { data } = await calendarApi.post('/auth', { email, password });
 
