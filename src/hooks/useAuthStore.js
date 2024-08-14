@@ -33,7 +33,7 @@ export const useAuthStore = () => {
             localStorage.setItem( 'token', data.token );
             localStorage.setItem( 'token-init-date', new Date().getTime() );
             
-            dispatch( onLogin({ name, data: data.uid }) );
+            dispatch( onLogin({ name: name, data: data.uid }) );
             
         } catch (error) {
 
@@ -59,7 +59,7 @@ export const useAuthStore = () => {
             localStorage.setItem('token', data.token);
             localStorage.setItem( 'token-init-date', new Date().getTime() );
 
-            dispatch( onLogin({ name: data.name, data: data.uid }) );
+            dispatch( onLogin({ name: data.name, uid: data.uid }) );
 
         } catch (error) {
             localStorage.clear();
