@@ -7,7 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { es } from 'date-fns/locale/es';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-import { useCalendarStore, useUiStore } from '../../hooks';
+import { useAuthStore, useCalendarStore, useUiStore } from '../../hooks';
 
 registerLocale('es', es);
 
@@ -28,6 +28,7 @@ export const CalendarModal = () => {
 
     const { isDateModalOpen, closeDateModal } = useUiStore();
     const { activeEvent, startSavingEvent } = useCalendarStore();
+    const { user } = useAuthStore();
 
     const [formSubmitted, setFormSubmitted] = useState(false)
 
@@ -90,6 +91,19 @@ export const CalendarModal = () => {
         setFormSubmitted(false);
     }
 
+    const [isMyEvent, setIsMyEvent] = useState(false);
+    const [userName, setUserName] = useState('');
+
+    useEffect(() => {
+        if ( activeEvent === null ) return;
+        setIsMyEvent( user.uid === activeEvent.user._id );
+    }, [activeEvent]);
+
+    useEffect(() => {
+        if ( activeEvent === null ) return;
+        setUserName( activeEvent.user.name );
+    }, [activeEvent]);
+
   return (
     <Modal
         isOpen={ isDateModalOpen }
@@ -99,7 +113,8 @@ export const CalendarModal = () => {
         overlayClassName="modal-fondo"
         closeTimeoutMS={ 200 }
     >
-        <h1> Nuevo evento </h1>
+        <h1>Nuevo evento</h1>
+        <h5>Creado por: { userName }</h5>
         
         <hr />
         <form 
@@ -119,6 +134,7 @@ export const CalendarModal = () => {
                     minDate={ new Date() }
                     timeCaption="Hora"
                     locale="es"
+                    disabled={ !isMyEvent }
                 />
             </div>
 
@@ -134,6 +150,7 @@ export const CalendarModal = () => {
                     showTimeSelect
                     timeCaption="Hora"
                     locale="es"
+                    disabled={ !isMyEvent }
                 />
             </div>
 
@@ -148,6 +165,7 @@ export const CalendarModal = () => {
                     autoComplete="off"
                     value={ formValues.title }
                     onChange={ onInputChange }
+                    disabled={ !isMyEvent }
                 />
                 <small id="emailHelp" className="form-text text-muted">Una descripción corta</small>
             </div>
@@ -161,6 +179,7 @@ export const CalendarModal = () => {
                     name="notes"
                     value={ formValues.notes }
                     onChange={ onInputChange }
+                    disabled={ !isMyEvent }
                 ></textarea>
                 <small id="emailHelp" className="form-text text-muted">Información adicional</small>
             </div>
@@ -168,6 +187,7 @@ export const CalendarModal = () => {
             <button
                 type="submit"
                 className="btn btn-outline-primary btn-block"
+                disabled={ !isMyEvent }
             >
                 <i className="far fa-save"></i>
                 <span> Guardar</span>

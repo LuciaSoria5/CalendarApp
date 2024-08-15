@@ -49,7 +49,9 @@ export const LoginPage = () => {
     
 
     return (
+        <>
         <div className="container login-container">
+        <h1>Calendario</h1>
             <div className="row">
                 <div className="col-md-6 login-form-1">
                     <h3>Ingreso</h3>
@@ -148,5 +150,6 @@ export const LoginPage = () => {
 
             </div>
         </div>
+        </>
     )
 }
