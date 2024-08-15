@@ -1,4 +1,13 @@
-/* Modal */
+h1{
+  color: #8126b6;
+}
+
+.custom-navbar {
+  background-color: #efe1f3;
+  color: #6d14a1;
+}
+
+/* ###################### Modal ###################### */
 .ReactModalPortal > div{
   opacity: 0;
 }
@@ -39,7 +48,64 @@
   padding: 10px;
 }
 
-/* FABS */
+/* ###################### Date-picker ###################### */
+.rbc-today {
+  background-color: #efe1f3 !important; /* Color personalizado */
+}
+/* ######## Dias ######## */
+.react-datepicker__day--today {
+  background-color: #d6ade1; 
+  border-color: #d6ade1;
+  border-radius: 50%;
+  color: white;
+}
+.react-datepicker__day.react-datepicker__day--selected {
+  background-color: #d6ade1;
+  color: white;
+  border-radius: 50%;
+}
+
+.react-datepicker__day.react-datepicker__day--selected:hover {
+  background-color: #d6ade1;
+  color: white;
+  border-radius: 50%;
+}
+
+/* ######## Horas ######## */
+
+.react-datepicker__time--now {
+  background-color: #d6ade1; 
+  border-color: #d6ade1;
+  color: white;
+}
+.react-datepicker__time-list-item--selected {
+  background-color: #d6ade1 !important;
+  color: rgb(132, 28, 28);
+}
+
+/*###################### Botones ###################### */
+
+.btn {
+  background-color: #fff;
+  color: #8126b6;
+  border-color: #8126b6;
+}
+.btn:hover {
+  background-color: #efe1f3;
+  background-color: #500e66;
+  border-color: #500e66;
+}
+
+/* ###################### Navbar ###################### */
+.navbar-brand{
+  color: #8126b6;
+}
+
+/* ###################### Fas y Fab ###################### */
+.fas.fa-calendar-alt{
+  color: #8126b6;
+}
+
 .fab {
   border-radius: 100%;
   bottom: 25px;
@@ -47,6 +113,16 @@
   padding: 25px;
   position: fixed;
   right: 25px;
+  background-color: #c166e0;
+  border-color: #c166e0;
+  color: #fff
+}
+.fab:hover {
+  background-color: #8126b6;
+  border-color: #8126b6;
+}
+.fab:active {
+  background-color: #500e66 !important;
 }
 
 .fab-danger {
@@ -57,5 +133,14 @@
   left: 25px;
   width: 70px;
   height: 70px;
+  background-color: #8126b6;
+  border-color: #8126b6;
+  color: #fff
 }
-
+.fab-danger:hover {
+  background-color: rgb(80, 14, 102);
+  border-color: rgb(80, 14, 102);
+}
+.fab-danger:active {
+  background-color: rgb(0, 0, 0) !important;
+}

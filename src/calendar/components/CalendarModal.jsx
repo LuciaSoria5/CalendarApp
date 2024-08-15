@@ -116,6 +116,7 @@ export const CalendarModal = () => {
                     wrapperClassName="w-100"
                     dateFormat="Pp"
                     showTimeSelect
+                    minDate={ new Date() }
                     timeCaption="Hora"
                     locale="es"
                 />
