@@ -59,19 +59,30 @@ h5{
 .react-datepicker__day--today {
   background-color: #d6ade1; 
   border-color: #d6ade1;
-  border-radius: 50%;
+  border-radius: 20%;
   color: white;
 }
 .react-datepicker__day.react-datepicker__day--selected {
   background-color: #d6ade1;
+  border-color: #d6ade1;
   color: white;
   border-radius: 50%;
 }
 
 .react-datepicker__day.react-datepicker__day--selected:hover {
   background-color: #d6ade1;
+  border-color: #d6ade1;
   color: white;
   border-radius: 50%;
+}
+.react-datepicker__day--keyboard-selected {
+  background-color: #d6ade1 !important; /* Asegura que el color persista */
+  color: white !important;
+  border-radius: 50%;
+}
+.react-datepicker__day--outside-month {
+  color: #f0f0f0 !important;
+  pointer-events: none;
 }
 
 /* ######## Horas ######## */
