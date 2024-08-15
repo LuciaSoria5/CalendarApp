@@ -98,6 +98,11 @@ h5{
   background-color: #500e66;
   border-color: #500e66;
 }
+.btn:disabled {
+  background-color: #fff;
+  color: #8126b6;
+  border-color: #8126b6;
+}
 
 /* ###################### Navbar ###################### */
 .navbar-brand{

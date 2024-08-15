@@ -31,7 +31,8 @@ export const CalendarModal = () => {
     const { user } = useAuthStore();
 
     const [formSubmitted, setFormSubmitted] = useState(false)
-
+    const [isMyEvent, setIsMyEvent] = useState(false);
+    const [userName, setUserName] = useState('');
     const [formValues, setFormValues] = useState({
         title: '',
         notes: '',
@@ -41,19 +42,26 @@ export const CalendarModal = () => {
 
     const titleClass = useMemo(() => {
         if ( !formSubmitted ) return '';
-
         return (formValues.title.length > 0 )
         ? ''
         : 'is-invalid';
-
     }, [ formValues.title, formSubmitted ]);
 
     useEffect(() => {
       if ( activeEvent !== null ) {
         setFormValues({ ...activeEvent });
       }
-    
     }, [ activeEvent ])
+
+    useEffect(() => {
+        if ( activeEvent === null ) return;
+        setIsMyEvent( user.uid === activeEvent.user._id || user.uid === activeEvent.user.uid );
+    }, [activeEvent]);
+
+    useEffect(() => {
+        if ( activeEvent === null ) return;
+        setUserName( activeEvent.user.name );
+    }, [activeEvent]);
     
     const onInputChange = ({ target }) => {
         setFormValues({
@@ -90,19 +98,6 @@ export const CalendarModal = () => {
         closeDateModal();
         setFormSubmitted(false);
     }
-
-    const [isMyEvent, setIsMyEvent] = useState(false);
-    const [userName, setUserName] = useState('');
-
-    useEffect(() => {
-        if ( activeEvent === null ) return;
-        setIsMyEvent( user.uid === activeEvent.user._id );
-    }, [activeEvent]);
-
-    useEffect(() => {
-        if ( activeEvent === null ) return;
-        setUserName( activeEvent.user.name );
-    }, [activeEvent]);
 
   return (
     <Modal
