@@ -1,5 +1,5 @@
 .login-container{
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 .login-form-1{
@@ -25,9 +25,9 @@
 }
 
 
-.login-container form{
+/* .login-container form{
     padding: 10%;
-}
+} */
 .btnSubmit
 {
     border-radius: 1rem;
