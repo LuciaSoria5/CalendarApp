@@ -6,7 +6,7 @@
 
 Esta es una aplicación MERN desarrollada en React 18.3.1 que permite a los usuarios registrarse y en el sitio y crear eventos con fecha de inicio y fin, título y, descripción. El usuario puede visualizar, modificar y eliminar sus propios eventos, y también puede visualizar los eventos de otros usuarios.
 
-La aplicación fue desplegada utilizando Vercel, y se encuentra disponible en [este link](https://calendar-app-seven-gray.vercel.app)
+La aplicación fue desplegada utilizando Vercel.
 
 ## Características y herramientas
 
